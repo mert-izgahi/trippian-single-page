@@ -72,6 +72,7 @@ export async function generateMetadata({ params, searchParams }) {
             title: offer.title,
             description: offer.description,
             url: offer.shareLink,
+            content:"article",
             images: [
               {
                 url: cover,
@@ -87,6 +88,7 @@ export async function generateMetadata({ params, searchParams }) {
             description: offer.description,
             image: cover,
             url: offer.shareLink,
+            content:"article",
             images: [
               {
                 url: cover,
@@ -99,7 +101,13 @@ export async function generateMetadata({ params, searchParams }) {
             title: offer.title,
             description: offer.description,
             url: offer.shareLink,
-            image: cover,
+            images: [
+              {
+                url: cover,
+                width: 300,
+                height: 300,
+              },
+            ],
           },
           type: "website",
           robots: "follow, index",
