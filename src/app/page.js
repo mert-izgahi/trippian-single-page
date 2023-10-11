@@ -64,7 +64,7 @@ export async function generateMetadata({ params, searchParams }) {
   await authorize({ email: "mert@mail.com", password: "12345" }).then(
     async (token) => {
       await getOffer({ token, offerId: offerId }).then((offer) => {
-        const cover = offer.media[0].find((img) => img.isCover).url;
+        const cover = offer.media.find((img) => img.isCover).url;
         metaTags = {
           title: offer.title,
           description: offer.description,
