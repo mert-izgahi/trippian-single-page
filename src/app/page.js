@@ -64,7 +64,7 @@ export async function generateMetadata({ params, searchParams }) {
   await authorize({ email: "mert@mail.com", password: "12345" }).then(
     async (token) => {
       await getOffer({ token, offerId: offerId }).then((offer) => {
-        const cover = offer.media.find((img) => img.isCover).thumb;
+        const cover = offer.media.find((img) => img.isCover).url;
         metaTags = {
           title: offer.title,
           description: offer.description,
@@ -77,13 +77,13 @@ export async function generateMetadata({ params, searchParams }) {
             images: [
               {
                 url: cover,
-                width: 300,
-                height: 200,
+                width: 800,
+                height: 600,
               },
               ...offer.media.map((img) => ({
-                url: img.thumb,
-                width: 300,
-                height: 200,
+                url: img.url,
+                width: 800,
+                height: 600,
               })),
             ],
           },
@@ -103,7 +103,6 @@ export async function generateMetadata({ params, searchParams }) {
               },
             ],
           },
-
           robots: "follow, index",
           canonical:
             "https://hiddengem.trippian.com/offers/64768e63da6510efa018e268",
