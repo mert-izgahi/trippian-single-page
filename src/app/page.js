@@ -72,13 +72,20 @@ export async function generateMetadata({ params, searchParams }) {
             title: offer.title,
             description: offer.description,
             url: offer.shareLink,
-            content:"article",
+            content: "article",
+            siteName: "Trippian",
+
             images: [
               {
                 url: cover,
-                width: 300,
-                height: 300,
+                width: 800,
+                height: 600,
               },
+              ...offer.media.map((img) => ({
+                url: img.url,
+                width: 800,
+                height: 600,
+              })),
             ],
           },
           twitter: {
@@ -88,7 +95,7 @@ export async function generateMetadata({ params, searchParams }) {
             description: offer.description,
             image: cover,
             url: offer.shareLink,
-            content:"article",
+            content: "article",
             images: [
               {
                 url: cover,
@@ -97,19 +104,6 @@ export async function generateMetadata({ params, searchParams }) {
               },
             ],
           },
-          whatsapp: {
-            title: offer.title,
-            description: offer.description,
-            url: offer.shareLink,
-            images: [
-              {
-                url: cover,
-                width: 300,
-                height: 300,
-              },
-            ],
-          },
-          type: "website",
           robots: "follow, index",
           canonical:
             "https://hiddengem.trippian.com/offers/64768e63da6510efa018e268",
@@ -119,6 +113,8 @@ export async function generateMetadata({ params, searchParams }) {
               href: "https://hiddengem.trippian.com/offers/64768e63da6510efa018e268",
             },
           ],
+          locale: "en_US",
+          type: "website",
         };
       });
     }
