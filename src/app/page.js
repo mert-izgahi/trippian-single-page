@@ -64,15 +64,17 @@ export async function generateMetadata({ params, searchParams }) {
   await authorize({ email: "mert@mail.com", password: "12345" }).then(
     async (token) => {
       await getOffer({ token, offerId: offerId }).then((offer) => {
+        const cover = offer.media[0].find((img) => img.isCover).url;
         metaTags = {
           title: offer.title,
           description: offer.description,
           openGraph: {
             title: offer.title,
             description: offer.description,
+            url: offer.shareLink,
             images: [
               {
-                url: offer.media[0].url,
+                url: cover,
                 width: 300,
                 height: 300,
               },
@@ -83,10 +85,11 @@ export async function generateMetadata({ params, searchParams }) {
             site: "@hiddengem",
             title: offer.title,
             description: offer.description,
-            image: offer.media[0].url,
+            image: cover,
+            url: offer.shareLink,
             images: [
               {
-                url: offer.media[0].url,
+                url: cover,
                 width: 300,
                 height: 300,
               },
@@ -95,7 +98,8 @@ export async function generateMetadata({ params, searchParams }) {
           whatsapp: {
             title: offer.title,
             description: offer.description,
-            image: offer.media[0].url,
+            url: offer.shareLink,
+            image: cover,
           },
           type: "website",
           robots: "follow, index",
