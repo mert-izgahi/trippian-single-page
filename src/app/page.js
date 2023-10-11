@@ -80,15 +80,25 @@ export async function generateMetadata({ params, searchParams }) {
           },
           twitter: {
             cardType: "summary_large_image",
+            site: "@hiddengem",
             title: offer.title,
             description: offer.description,
+            image:
+              "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
+
             images: [
               {
                 url: "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
                 width: 300,
                 height: 300,
-              }
-            ]
+              },
+            ],
+          },
+          whatsapp: {
+            title: offer.title,
+            description: offer.description,
+            image:
+              "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
           },
           type: "website",
           robots: "follow, index",
