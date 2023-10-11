@@ -72,7 +72,7 @@ export async function generateMetadata({ params, searchParams }) {
             description: offer.description,
             images: [
               {
-                url: "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
+                url: offer.media[0].url,
                 width: 300,
                 height: 300,
               },
@@ -83,12 +83,10 @@ export async function generateMetadata({ params, searchParams }) {
             site: "@hiddengem",
             title: offer.title,
             description: offer.description,
-            image:
-              "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
-
+            image: offer.media[0].url,
             images: [
               {
-                url: "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
+                url: offer.media[0].url,
                 width: 300,
                 height: 300,
               },
@@ -97,8 +95,7 @@ export async function generateMetadata({ params, searchParams }) {
           whatsapp: {
             title: offer.title,
             description: offer.description,
-            image:
-              "https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg",
+            image: offer.media[0].url,
           },
           type: "website",
           robots: "follow, index",
